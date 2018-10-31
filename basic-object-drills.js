@@ -1,5 +1,5 @@
 'use strict';
-//number one:
+//=====number one======
 // function createMyObject (){
 //   const myObj = {};
 //   myObj['foo'] = 'bar';
@@ -24,7 +24,7 @@
 //   };
 // }
 
-//number 2:
+//=====number two======
 // function updateObject(obj){
 //   Object.assign(obj, {foo: 'foo', bar: 'bar', bizz: 'bizz',bang: 'bang'});
 //   return obj;
@@ -35,7 +35,7 @@
 // updateObject(randomObj);
 // console.log(randomObj);
 
-//Number 3:
+//=====number three======
 // function personMaker() {
 //   var person = {
 //     firstName: 'Paul',
@@ -49,7 +49,7 @@
 // }
 //by having fullName be a function using this, you can later on change first name and last name, and it'll compute it based on the propties on the object. Vs if you didn't do that it'd only do it once at the object's creation.
 
-//Number 4:
+//=====number four======
 // const sampleObj = {
 //   foo: 'foo',
 //   bar: 'bar',

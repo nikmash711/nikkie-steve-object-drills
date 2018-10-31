@@ -1,80 +1,90 @@
-const loaf = {
-  flour: 30,
-  water: 210,
-  hydration: function() {
-    return (loaf.water / loaf.flour) * 100
-  }
-}
+'use strict';
 
-console.log(loaf.flour)
-console.log(loaf.water)
-console.log(loaf.hydration())
+// Number one:Object Initializers and Methods
+// const loaf = {
+//   flour: 30,
+//   water: 210,
+//   hydration: function() {
+//     return (loaf.water / loaf.flour) * 100;
+//   }
+// };
 
-const obj = { foo: 1, bar: 2, fum: 3, quux: 4, spam: 5 }
+// console.log(loaf.flour);
+// console.log(loaf.water);
+// console.log(loaf.hydration());
 
-for (const key in obj) {
-  if (obj.hasOwnProperty(key)) {
-    const element = obj[key]
-    console.log(`${key} ${element}`)
-  }
-}
 
-const hobbit = {
-  meals: [
-    'breakfast',
-    'second breakfast',
-    'elevenses',
-    'lunch',
-    'afternoon tea',
-    'dinner',
-    'supper'
-  ]
-}
-console.log(hobbit.meals[3])
+//Number two: 2. Iterating over an object's properties
+// const obj = { foo: 1, bar: 2, fum: 3, quux: 4, spam: 5 };
 
-obj1 = { name: 'steve', jobTitle: 'software enigeer', boss: 'james' }
-obj2 = { name: 'fred', jobTitle: 'developer', boss: 'james' }
-obj3 = { name: 'james', jobTitle: 'programmer' }
+// for (const key in obj) {
+//   if (obj.hasOwnProperty(key)) {
+//     const element = obj[key];
+//     console.log(`${key} ${element}`);
+//   }
+// }
 
-array = [obj1, obj2, obj3]
+//Numver three: Arrays in objects
 
-array.forEach(element => {
-  if (!element.hasOwnProperty('boss')) {
-    console.log(
-      `${element.jobTitle} ${element.name} doesn't report to anybody.`
-    )
-  } else {
-    console.log(
-      `${element.jobTitle} ${element.name} reports to ${element.boss}.`
-    )
-  }
-})
+// const hobbit = {
+//   meals: [
+//     'breakfast',
+//     'second breakfast',
+//     'elevenses',
+//     'lunch',
+//     'afternoon tea',
+//     'dinner',
+//     'supper'
+//   ]
+// };
+// console.log(hobbit.meals[3]);
 
+
+//Number four and five: Arrays of Objects and Properties that aren't there
+// obj1 = { name: 'steve', jobTitle: 'software enigeer', boss: 'james' };
+// obj2 = { name: 'fred', jobTitle: 'developer', boss: 'james' };
+// obj3 = { name: 'james', jobTitle: 'programmer' };
+
+// array = [obj1, obj2, obj3];
+
+// array.forEach(element => {
+//   if (!element.hasOwnProperty('boss')) {
+//     console.log(
+//       `${element.jobTitle} ${element.name} doesn't report to anybody.`
+//     );
+//   } else {
+//     console.log(
+//       `${element.jobTitle} ${element.name} reports to ${element.boss}.`
+//     );
+//   }
+// });
+
+//Using factory functions:
 function createCharacter(name, nickname, race, origin, attack, defense) {
-  const character = {}
-  character.name = name
-  character.nickname = nickname
-  character.race = race
-  character.origin = origin
-  character.attack = attack
-  character.defense = defense
+  const character = {};
+  character.name = name;
+  character.nickname = nickname;
+  character.race = race;
+  character.origin = origin;
+  character.attack = attack;
+  character.defense = defense;
   character.describe = function() {
-    return `${character.name} is a ${character.race} from ${character.origin}.`
-  }
+    return `${character.name} is a ${character.race} from ${character.origin}.`;
+  };
   character.evaluateFight = function(characterObj) {
-    let health = characterObj.defense - character.attack
-    let health2 = characterObj.defense - characterObj.attack
+    let health = characterObj.defense - character.attack;
+    let health2 = characterObj.defense - characterObj.attack;
     return `${characterObj.name} takes ${
       character.attack
     } damage, his health is ${health < 0 ? 0 : health} and you receive ${
       characterObj.attack
-    } damage and your health is ${health2 < 0 ? 0 : health2}`
-  }
+    } damage and your health is ${health2 < 0 ? 0 : health2}`;
+  };
 
-  return character
+  return character;
 }
 
-let characterArray = []
+let characterArray = [];
 
 const gandalf = createCharacter(
   'Gandalf the White',
@@ -83,7 +93,7 @@ const gandalf = createCharacter(
   'Middle Earth',
   10,
   6
-)
+);
 
 const bilbo = createCharacter(
   'Bilbo Baggins',
@@ -92,7 +102,7 @@ const bilbo = createCharacter(
   'The Shire',
   2,
   1
-)
+);
 
 const aragorn = createCharacter(
   'Aragorn son of Arathorn',
@@ -101,7 +111,7 @@ const aragorn = createCharacter(
   'Dunnedain',
   6,
   8
-)
+);
 const frodo = createCharacter(
   'Frodo Baggins',
   'Frodo',
@@ -109,7 +119,7 @@ const frodo = createCharacter(
   'The Shire',
   3,
   2
-)
+);
 
 const legolas = createCharacter(
   'Legolas',
@@ -118,7 +128,7 @@ const legolas = createCharacter(
   'Woodland Realm',
   8,
   5
-)
+);
 
 const Arwen = createCharacter(
   'Arwen Undomiel',
@@ -127,25 +137,25 @@ const Arwen = createCharacter(
   'Rivendell',
   5,
   10
-)
-characterArray.push(legolas, gandalf, bilbo, frodo, aragorn, Arwen)
+);
+characterArray.push(legolas, gandalf, bilbo, frodo, aragorn, Arwen);
 
-console.log(gandalf.evaluateFight(Arwen))
+console.log(gandalf.evaluateFight(Arwen));
 
 const arwen = characterArray.find(function(element) {
-  return element.nickname === 'arwen'
-})
-console.log(arwen.describe())
+  return element.nickname === 'arwen';
+});
+console.log(arwen.describe());
 
 let hobbits = characterArray.filter(function(element) {
-  return element.race === 'Hobbit'
-})
-console.log(hobbits)
+  return element.race === 'Hobbit';
+});
+console.log(hobbits);
 
 let charactersAboveFive = characterArray.filter(function(element) {
-  return element.attack > 5
-})
-console.log(charactersAboveFive)
+  return element.attack > 5;
+});
+console.log(charactersAboveFive);
 
 // ===============================================================================================
 // | Name                      | Nickname    | Race       | Origin         | Attack   | Defense  |

@@ -8,10 +8,10 @@ function decode(word){
     c: 3,
     d: 4
   };
-    // if the first letter can be found in our key
-    // we want the character at the index indicated in the key
+   
   let firstLetter = word[0];
-  if(firstLetter in key){
+  if(firstLetter in key) // if the first letter can be found in our key, we want the character at the index indicated in the key
+  {
     return word[key[firstLetter]];
   } 
   else {
