@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 //number one:
 // function createMyObject (){
 //   const myObj = {};
@@ -36,29 +36,29 @@
 // console.log(randomObj);
 
 //Number 3:
-function personMaker() {
-  var person = {
-    firstName: 'Paul',
-    lastName: 'Jones',
+// function personMaker() {
+//   var person = {
+//     firstName: 'Paul',
+//     lastName: 'Jones',
 
-    fullName: function() {
-      return this.firstName + ' ' + this.lastName
-    }
-  }
-  return person
-}
+//     fullName: function() {
+//       return this.firstName + ' ' + this.lastName
+//     }
+//   }
+//   return person
+// }
 //by having fullName be a function using this, you can later on change first name and last name, and it'll compute it based on the propties on the object. Vs if you didn't do that it'd only do it once at the object's creation.
 
 //Number 4:
-const sampleObj = {
-  foo: 'foo',
-  bar: 'bar',
-  bizz: 'bizz',
-  bang: 'bang'
-}
+// const sampleObj = {
+//   foo: 'foo',
+//   bar: 'bar',
+//   bizz: 'bizz',
+//   bang: 'bang'
+// }
 
-function keyDeleter(obj) {
-  delete obj.bar
-  delete obj.foo
-  return obj
-}
+// function keyDeleter(obj) {
+//   delete obj.bar
+//   delete obj.foo
+//   return obj
+// }
