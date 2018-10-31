@@ -51,7 +51,7 @@
 // })
 
 function createCharacter(name, nickname, race, origin, attack, defense) {
-  character = {}
+  const character = {}
   character.name = name
   character.nickname = nickname
   character.race = race
@@ -62,13 +62,19 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
     return `${character.name} is a ${character.race} from ${character.origin}.`
   }
   character.evaluateFight = function(characterObj) {
-    return `Your opponent takes ${character.attack -
-      characterObj.defense} damage and you receive ${characterObj.attack -
-      character.defense} damage`
+    let health = characterObj.defense - character.attack
+    let health2 = characterObj.defense - characterObj.attack
+    return `${characterObj.name} takes ${
+      character.attack
+    } damage, his health is ${health < 0 ? 0 : health} and you receive ${
+      characterObj.attack
+    } damage and your health is ${health2 < 0 ? 0 : health2}`
   }
 
   return character
 }
+
+let characterArray = []
 
 const gandalf = createCharacter(
   'Gandalf the White',
@@ -87,6 +93,7 @@ const bilbo = createCharacter(
   2,
   1
 )
+
 const aragorn = createCharacter(
   'Aragorn son of Arathorn',
   'Aragon',
@@ -113,7 +120,17 @@ const legolas = createCharacter(
   5
 )
 
-console.log(gandalf.describe())
+const Arwen = createCharacter(
+  'Arwen Undomiel',
+  'arwen',
+  'Half-Elf',
+  'Rivendell',
+  5,
+  10
+)
+characterArray.push(legolas, gandalf, bilbo, frodo, aragorn, Arwen)
+
+console.log(gandalf.evaluateFight(bilbo))
 
 // ===============================================================================================
 // | Name                      | Nickname    | Race       | Origin         | Attack   | Defense  |
