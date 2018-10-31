@@ -58,15 +58,14 @@ function Character(name, nickname, race, origin, attack, defense) {
   this.origin = origin;
   this.attack = attack;
   this.defense = defense;
-
-  // character.evaluateFight = function(characterObj) {
-  //   return `Your opponent takes ${character.attack -
-  //     characterObj.defense} damage and you receive ${characterObj.attack -
-  //     character.defense} damage`;
-  // };
-  // return character;
-
 }
+
+Character.prototype.evaluate = function(oppenent){
+  let health = oppenent.defense - this.attack;
+  let health2 = this.defense - oppenent.attack;
+  return `${oppenent.name} takes ${this.attack } damage, his health is ${health < 0 ? 0 : health} and you receive ${ oppenent.attack } damage and your health is ${health2 < 0 ? 0 : health2}`;
+};
+
 Character.prototype.describe = function() {
   return `${this.name} is a ${this.race} from ${this.origin}.`;
 };
@@ -117,3 +116,4 @@ const legolas = new Character(
 
 console.log(gandalf.describe());
 console.log(legolas.describe());
+console.log(bilbo.evaluate(frodo));
