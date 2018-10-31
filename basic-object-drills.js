@@ -35,18 +35,20 @@
 // updateObject(randomObj);
 // console.log(randomObj);
 
-function personMaker() {
-  var person = {
-    firstName: 'Paul',
-    lastName: 'Jones',
+//Number 3:
+// function personMaker() {
+//   var person = {
+//     firstName: 'Paul',
+//     lastName: 'Jones',
 
-    fullName: function() {
-      return this.firstName + ' ' + this.lastName
-    }
-  }
-  return person
-}
+//     fullName: function() {
+//       return this.firstName + ' ' + this.lastName
+//     }
+//   }
+//   return person
+// }
 
+//Number 4:
 const sampleObj = {
   foo: 'foo',
   bar: 'bar',
