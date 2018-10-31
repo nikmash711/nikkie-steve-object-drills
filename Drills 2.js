@@ -1,3 +1,4 @@
+'use strict';
 // const loaf = {
 //   flour: 30,
 //   water: 210,
@@ -50,81 +51,75 @@
 //   }
 // })
 
-function createCharacter(name, nickname, race, origin, attack, defense) {
-  character = {}
-  character.name = name
-  character.nickname = nickname
-  character.race = race
-  character.origin = origin
-  character.attack = attack
-  character.defense = defense
-  character.describe = function() {
-    return `${character.name} is a ${character.race} from ${character.origin}.`
-  }
-  character.evaluateFight = function(characterObj) {
-    return `Your opponent takes ${character.attack -
-      characterObj.defense} damage and you receive ${characterObj.attack -
-      character.defense} damage`
-  }
+function Character(name, nickname, race, origin, attack, defense) {
+  this.name = name;
+  this.nickname = nickname;
+  this.race = race;
+  this.origin = origin;
+  this.attack = attack;
+  this.defense = defense;
 
-  return character
+  // character.evaluateFight = function(characterObj) {
+  //   return `Your opponent takes ${character.attack -
+  //     characterObj.defense} damage and you receive ${characterObj.attack -
+  //     character.defense} damage`;
+  // };
+  // return character;
+
 }
+Character.prototype.describe = function() {
+  return `${this.name} is a ${this.race} from ${this.origin}.`;
+};
 
-const gandalf = createCharacter(
+Character.prototype.evaluate = function(oppenent){
+  let health = oppenent.defense - this.attack;
+  let health2 = this.defense - oppenent.attack;
+  return `${oppenent.name} takes ${this.attack } damage, his health is ${health < 0 ? 0 : health} and you receive ${ oppenent.attack } damage and your health is ${health2 < 0 ? 0 : health2}`;
+};
+
+const gandalf = new Character(
   'Gandalf the White',
   'gandalf',
   'Wizard',
   'Middle Earth',
   10,
   6
-)
+);
 
-const bilbo = createCharacter(
+const bilbo = new Character(
   'Bilbo Baggins',
   'bilbo',
   'Hobbit',
   'The Shire',
   2,
   1
-)
-const aragorn = createCharacter(
+);
+const aragorn = new Character(
   'Aragorn son of Arathorn',
   'Aragon',
   'Man',
   'Dunnedain',
   6,
   8
-)
-const frodo = createCharacter(
+);
+const frodo = new Character(
   'Frodo Baggins',
   'Frodo',
   'Hobbit',
   'The Shire',
   3,
   2
-)
+);
 
-const legolas = createCharacter(
+const legolas = new Character(
   'Legolas',
   'legolas',
   'Efl',
   'Woodland Realm',
   8,
   5
-)
+);
 
-console.log(gandalf.describe())
-
-// ===============================================================================================
-// | Name                      | Nickname    | Race       | Origin         | Attack   | Defense  |
-// -----------------------------------------------------------------------------------------------
-// | Gandalf the White         | gandalf     | Wizard     | Middle Earth   | 10       | 6        |
-// -----------------------------------------------------------------------------------------------
-// | Bilbo Baggins             | bilbo       | Hobbit     | The Shire      | 2        | 1        |
-// -----------------------------------------------------------------------------------------------
-// | Frodo Baggins             | frodo       | Hobbit     | The Shire      | 3        | 2        |
-// -----------------------------------------------------------------------------------------------
-// | Aragorn son of Arathorn   | aragorn     | Man        | Dunnedain      | 6        | 8        |
-// -----------------------------------------------------------------------------------------------
-// | Legolas                   | legolas     | Elf        | Woodland Realm | 8        | 5        |
-// -----------------------------------------------------------------------------------------------
+console.log(gandalf.describe());
+console.log(legolas.describe());
+console.log(bilbo.evaluate(frodo));
