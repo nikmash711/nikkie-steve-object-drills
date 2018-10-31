@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 //number one:
 // function createMyObject (){
 //   const myObj = {};
@@ -28,10 +28,34 @@
 // function updateObject(obj){
 //   Object.assign(obj, {foo: 'foo', bar: 'bar', bizz: 'bizz',bang: 'bang'});
 //   return obj;
-//   //using assign will actually change the object 
+//   //using assign will actually change the object
 // }
 
 // const randomObj = {one: '1'};
 // updateObject(randomObj);
 // console.log(randomObj);
 
+function personMaker() {
+  var person = {
+    firstName: 'Paul',
+    lastName: 'Jones',
+
+    fullName: function() {
+      return this.firstName + ' ' + this.lastName
+    }
+  }
+  return person
+}
+
+const sampleObj = {
+  foo: 'foo',
+  bar: 'bar',
+  bizz: 'bizz',
+  bang: 'bang'
+}
+
+function keyDeleter(obj) {
+  delete obj.bar
+  delete obj.foo
+  return obj
+}
